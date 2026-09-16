@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&display=swap');
+
+:root {
+    --paper: #f1ead9;
+    --paper-edge: #e3d9c2;
+    --ink: #2b2320;
+    --ink-soft: #6b5f52;
+    --till-dark: #14231b;
+    --till-glow: #8fe3b3;
+    --coin: #b8862b;
+    --coin-light: #d8ad5c;
+    --success: #3f7d4f;
+    --fail: #b0413e;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    background: var(--paper-edge);
+    background-image:
+        radial-gradient(circle at 1px 1px, rgba(43, 35, 32, 0.06) 1px, transparent 0);
+    background-size: 16px 16px;
+    font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+    color: var(--ink);
+}
+
+.receipt {
+    width: 100%;
+    max-width: 400px;
+    background: var(--paper);
+    padding: 36px 28px 32px;
+    box-shadow: 0 18px 40px rgba(43, 35, 32, 0.18);
+    position: relative;
+}
+
+.receipt::before,
+.receipt::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background-image: radial-gradient(circle at 8px 5px, var(--paper-edge) 5px, transparent 5.5px);
+    background-size: 16px 10px;
+    background-repeat: repeat-x;
+}
+
+.receipt::before {
+    top: -1px;
+}
+
+.receipt::after {
+    bottom: -1px;
+    transform: rotate(180deg);
+}
+
+h1 {
+    font-family: "Shippori Mincho", serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 4px 0 20px;
+    letter-spacing: 0.04em;
+}
+
+.divider {
+    border: none;
+    border-top: 1.5px dashed var(--ink-soft);
+    opacity: 0.5;
+    margin: 20px 0;
+}
+
+.line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 0.95rem;
+    padding: 6px 0;
+    color: var(--ink-soft);
+}
+
+.line strong {
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.line .yen {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 1.05rem;
+    color: var(--ink);
+    font-weight: 700;
+}
+
+.line.target .yen {
+    color: var(--coin);
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    margin: 22px 0 8px;
+}
+
+input[type="number"] {
+    width: 100%;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 1.3rem;
+    padding: 12px 14px;
+    border: 1.5px solid var(--ink-soft);
+    background: #fffdf8;
+    color: var(--ink);
+    outline-offset: 2px;
+}
+
+input[type="number"]:focus-visible {
+    outline: 2px solid var(--coin);
+}
+
+button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 13px 0;
+    border: none;
+    background: var(--coin);
+    color: #fffdf8;
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+button:hover {
+    background: #9c7124;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.stamp {
+    text-align: center;
+    font-family: "Shippori Mincho", serif;
+    font-weight: 700;
+    font-size: 2.1rem;
+    padding: 10px 0 4px;
+    letter-spacing: 0.05em;
+}
+
+.stamp.success {
+    color: var(--success);
+}
+
+.stamp.fail {
+    color: var(--fail);
+}
+
+.display {
+    background: var(--till-dark);
+    padding: 18px 20px;
+    margin: 18px 0 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.display .label {
+    color: #cfe9d8;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+.display .yen {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--till-glow);
+    text-shadow: 0 0 10px rgba(143, 227, 179, 0.5);
+}
+
+.again {
+    display: block;
+    text-align: center;
+    margin-top: 26px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--coin);
+    padding-bottom: 2px;
+    font-size: 0.95rem;
+}
+
+.again:hover {
+    color: var(--coin);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

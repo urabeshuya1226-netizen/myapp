@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>結果 - おつり計算ゲーム</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <main class="receipt">
+        <h1>結果</h1>
+
+        <p class="stamp" id="hantei">{{ hantei }}</p>
+
+        <div class="display">
+            <span class="label">お釣り</span>
+            <span class="yen">{{ oturi }}円</span>
+        </div>
+
+        <a class="again" href="/">もう一度遊ぶ</a>
+    </main>
+
+    <script>
+        var el = document.getElementById("hantei");
+        if (el.textContent.indexOf("成功") !== -1) {
+            el.classList.add("success");
+        } else {
+            el.classList.add("fail");
+        }
+    </script>
+</body>
+
+</html>

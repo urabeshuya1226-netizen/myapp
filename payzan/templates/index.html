@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>おつり計算ゲーム</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <main class="receipt">
+        <h1>おつり計算ゲーム</h1>
+
+        <div class="line">
+            <span>お会計</span>
+            <strong class="yen">{{ kaikei }}円</strong>
+        </div>
+        <div class="line target">
+            <span>ちょうど出したいお釣り</span>
+            <strong class="yen">{{ odai }}円</strong>
+        </div>
+
+        <hr class="divider">
+
+        <form method="POST" action="/">
+            <input type="hidden" name="kaikei" value="{{ kaikei }}">
+            <input type="hidden" name="odai" value="{{ odai }}">
+
+            <label for="pay">お支払い額</label>
+            <input type="number" id="pay" name="pay" inputmode="numeric" required autofocus>
+
+            <button type="submit">支払う</button>
+        </form>
+    </main>
+</body>
+
+</html>
